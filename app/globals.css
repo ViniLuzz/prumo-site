@@ -11,12 +11,6 @@ html {
   color: #fff;
 }
 
-/* Deixa o campo de data (simulador) com a cor da marca no ícone */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  opacity: 0.6;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
