@@ -30,13 +30,13 @@ const PERGUNTAS = [
 export function FAQ() {
   const [aberta, setAberta] = useState<number | null>(0);
   return (
-    <section className="px-6 py-24">
+    <section className="bg-white px-6 py-24">
       <div className="mx-auto max-w-4xl">
         <Reveal>
           <div className="mb-4 flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-wide text-esmeralda">
             <span className="h-px w-6 bg-esmeralda" /> Perguntas frequentes
           </div>
-          <h2 className="font-display text-[clamp(30px,4vw,44px)] tracking-tight">
+          <h2 className="font-display text-[clamp(30px,4vw,44px)] tracking-tight text-verde">
             O que todo mundo pergunta antes de começar.
           </h2>
         </Reveal>
@@ -45,12 +45,12 @@ export function FAQ() {
             const open = aberta === i;
             return (
               <Reveal key={item.q} delay={i * 0.04}>
-                <div className="border-b border-creme/10">
+                <div className="border-b border-linha">
                   <button
                     onClick={() => setAberta(open ? null : i)}
                     className="flex w-full items-center justify-between gap-5 py-6 text-left"
                   >
-                    <span className="font-display text-xl font-medium text-creme">{item.q}</span>
+                    <span className="font-display text-xl font-medium text-verde">{item.q}</span>
                     <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.25 }} className="relative h-6 w-6 shrink-0">
                       <span className="absolute left-1/2 top-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 bg-esmeralda" />
                       <span className="absolute left-1/2 top-1/2 h-3.5 w-0.5 -translate-x-1/2 -translate-y-1/2 bg-esmeralda" />
@@ -65,7 +65,7 @@ export function FAQ() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <p className="max-w-2xl pb-6 text-base text-creme-dim">{item.a}</p>
+                        <p className="max-w-2xl pb-6 text-base text-tinta">{item.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>

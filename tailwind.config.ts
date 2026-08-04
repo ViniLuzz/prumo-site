@@ -6,13 +6,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        verde: "#0F3D2E",       // fundo principal (verde profundo)
-        "verde-esc": "#0A2E22", // seções mais fundas
-        "verde-mid": "#16523d", // cards
-        creme: "#F5F0E6",       // texto/fundo claro (papel)
-        "creme-dim": "#c9d4cc", // texto claro secundário
-        esmeralda: "#2BB673",   // acento
-        "esmeralda-cl": "#3fd389",
+        verde: "#0F3D2E",       // verde profundo (texto no claro; fundo nas seções escuras)
+        "verde-esc": "#0A2E22", // seções escuras mais fundas
+        "verde-mid": "#16523d", // cards nas seções escuras
+        creme: "#FBFAF7",       // base clara quase branca (off-white sóbrio)
+        "creme-dim": "#c9d4cc", // texto claro secundário (usado sobre verde)
+        tinta: "#243c33",       // texto secundário sobre a base clara
+        linha: "#E6E7E1",       // bordas suaves no claro
+        esmeralda: "#0DA96E",   // acento (verde mais fechado, sério)
+        "esmeralda-cl": "#0fbd7c",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
