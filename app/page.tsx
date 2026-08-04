@@ -1,5 +1,6 @@
 import { ChatDemo } from "@/components/ChatDemo";
 import { Simulador } from "@/components/Simulador";
+import { VerdeTextura } from "@/components/VerdeTextura";
 import { Reveal, Counter, Logo, Arrow, WA } from "@/components/ui";
 import { FAQ } from "@/components/FAQ";
 
@@ -112,8 +113,9 @@ function Selo({ texto }: { texto: string }) {
 /* ─────────────── PROVA (dados reais, seção ESCURA) ─────────────── */
 function Prova() {
   return (
-    <section className="bg-verde px-6 py-16 text-creme">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative px-6 py-16 text-creme">
+      <VerdeTextura />
+      <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal>
           <p className="mb-10 text-center text-[15px] text-creme-dim">
             O sistema do INSS nega em escala — e boa parte dessas negativas está errada.
@@ -157,29 +159,33 @@ function Beneficios() {
     <section className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <Eyebrow>Benefícios que a gente analisa</Eyebrow>
-          <h2 className="max-w-2xl font-display text-[clamp(30px,4vw,44px)] tracking-tight text-verde">
-            Você manda a carta. A gente já sabe do que se trata.
-          </h2>
-          <p className="mt-4 max-w-xl text-lg text-tinta">
-            Nosso sistema reconhece o benefício e o motivo da negativa direto na carta do INSS — e
-            monta o recurso certo pro seu caso.
-          </p>
-        </Reveal>
-        <div className="mt-11 flex flex-wrap gap-3">
-          {itens.map((b, i) => (
-            <Reveal key={b} delay={i * 0.06}>
-              <div className="flex items-center gap-2.5 rounded-xl border border-linha bg-white px-5 py-3.5 text-[15.5px] font-medium text-verde shadow-sm">
-                <CheckMini /> {b}
+          <div className="relative overflow-hidden rounded-[2rem] px-8 py-14 text-creme sm:px-14">
+            <VerdeTextura forte />
+            <div className="relative z-10">
+              <Eyebrow>Benefícios que a gente analisa</Eyebrow>
+              <h2 className="max-w-2xl font-display text-[clamp(30px,4vw,44px)] tracking-tight">
+                Você manda a carta. A gente já sabe do que se trata.
+              </h2>
+              <p className="mt-4 max-w-xl text-lg text-creme-dim">
+                Nosso sistema reconhece o benefício e o motivo da negativa direto na carta do INSS — e
+                monta o recurso certo pro seu caso.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                {itens.map((b) => (
+                  <div
+                    key={b}
+                    className="flex items-center gap-2.5 rounded-xl border border-creme/15 bg-creme/5 px-5 py-3.5 text-[15.5px] font-medium text-creme backdrop-blur-sm"
+                  >
+                    <CheckSmall /> {b}
+                  </div>
+                ))}
               </div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.3}>
-          <p className="mt-5 text-[14px] text-tinta/70">
-            Não achou o seu? Manda a carta mesmo assim — se a gente ainda não cobre, uma pessoa da
-            equipe olha o seu caso.
-          </p>
+              <p className="mt-6 text-[14px] text-creme-dim">
+                Não achou o seu? Manda a carta mesmo assim — se a gente ainda não cobre, uma pessoa da
+                equipe olha o seu caso.
+              </p>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
@@ -195,8 +201,9 @@ function Como() {
     { n: 4, t: "Acompanha até o fim", d: "A gente lembra dos prazos e fica com você até o número de protocolo. Se o INSS pedir algo, você não vai estar sozinha.", free: false },
   ];
   return (
-    <section id="como" className="bg-verde px-6 py-24 text-creme">
-      <div className="mx-auto max-w-6xl">
+    <section id="como" className="relative px-6 py-24 text-creme">
+      <VerdeTextura />
+      <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal>
           <EyebrowDark>Como funciona</EyebrowDark>
           <h2 className="max-w-2xl font-display text-[clamp(30px,4vw,44px)] tracking-tight">
@@ -317,10 +324,11 @@ function Comparacao() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative h-full rounded-2xl border-[1.5px] border-esmeralda bg-verde p-8 text-creme">
-              <span className="absolute -top-3 right-6 rounded-full bg-esmeralda px-4 py-1 text-xs font-bold text-white">Com o Prumo</span>
-              <h3 className="mb-5 text-[13px] font-bold uppercase tracking-wider text-esmeralda">Com o Prumo</h3>
-              <ul>
+            <div className="relative h-full overflow-hidden rounded-2xl border-[1.5px] border-esmeralda p-8 text-creme">
+              <VerdeTextura />
+              <span className="absolute -top-3 right-6 z-10 rounded-full bg-esmeralda px-4 py-1 text-xs font-bold text-white">Com o Prumo</span>
+              <h3 className="relative z-10 mb-5 text-[13px] font-bold uppercase tracking-wider text-esmeralda">Com o Prumo</h3>
+              <ul className="relative z-10">
                 {["O benefício fica 100% com você", "Você entende exatamente por que foi negada", "Recurso pronto e guiado, no seu WhatsApp", "Transparência total, sua senha nunca sai de você"].map((t) => (
                   <li key={t} className="flex items-start gap-3 border-b border-creme/12 py-3 text-[15.5px] last:border-0">
                     <CheckSmall /> {t}
@@ -338,8 +346,9 @@ function Comparacao() {
 /* ─────────────── PREÇO (seção ESCURA) ─────────────── */
 function Preco() {
   return (
-    <section id="comecar" className="bg-verde px-6 py-24 text-creme">
-      <div className="mx-auto max-w-6xl">
+    <section id="comecar" className="relative px-6 py-24 text-creme">
+      <VerdeTextura forte />
+      <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal>
           <div className="text-center">
             <EyebrowDark center>Comece agora</EyebrowDark>
@@ -349,7 +358,7 @@ function Preco() {
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="mx-auto mt-13 max-w-lg rounded-3xl border border-creme/15 bg-verde-mid p-10 text-center">
+          <div className="mx-auto mt-13 max-w-lg rounded-3xl border border-esmeralda/25 bg-[#134736]/70 p-10 text-center shadow-2xl shadow-black/30 backdrop-blur-sm">
             <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-esmeralda">Plano de Ação</div>
             <div className="font-display text-[64px] font-semibold leading-none">
               <span className="text-2xl font-normal text-creme-dim">R$</span>79
