@@ -84,12 +84,30 @@ export function ChatDemo() {
   }, [inView]);
 
   return (
-    <div ref={ref} className="relative mx-auto w-full max-w-[340px]">
-      {/* moldura do celular */}
-      <div className="rounded-[2.2rem] border-[10px] border-neutral-900 bg-neutral-900 shadow-2xl shadow-black/40">
-        <div className="overflow-hidden rounded-[1.5rem] bg-[#e5ddd5]">
+    <div ref={ref} className="relative mx-auto w-full max-w-[290px]">
+      {/* botões laterais (dão o "isso é um celular") */}
+      <div className="absolute -left-[3px] top-[110px] h-8 w-[3px] rounded-l bg-neutral-800" />
+      <div className="absolute -left-[3px] top-[156px] h-12 w-[3px] rounded-l bg-neutral-800" />
+      <div className="absolute -left-[3px] top-[210px] h-12 w-[3px] rounded-l bg-neutral-800" />
+      <div className="absolute -right-[3px] top-[170px] h-16 w-[3px] rounded-r bg-neutral-800" />
+
+      {/* moldura do celular: alta e fina, borda grossa, cantos bem arredondados */}
+      <div className="relative aspect-[9/19.5] rounded-[2.6rem] border-[11px] border-neutral-900 bg-neutral-900 shadow-2xl shadow-black/40 ring-1 ring-black/20">
+        <div className="relative flex h-full flex-col overflow-hidden rounded-[1.8rem] bg-[#e5ddd5]">
+          {/* barra de status do celular */}
+          <div className="relative z-20 flex items-center justify-between bg-[#075E54] px-6 pt-2 pb-0.5 text-[11px] font-semibold text-white">
+            <span>9:41</span>
+            <span className="flex items-center gap-1">
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor" aria-hidden><rect x="0" y="7" width="3" height="4" rx="0.5"/><rect x="4" y="5" width="3" height="6" rx="0.5"/><rect x="8" y="3" width="3" height="8" rx="0.5"/><rect x="12" y="1" width="3" height="10" rx="0.5"/></svg>
+              <svg width="20" height="11" viewBox="0 0 24 12" fill="none" aria-hidden><rect x="1" y="1" width="20" height="10" rx="2.5" stroke="currentColor" strokeWidth="1"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.2" fill="currentColor"/><rect x="22" y="4" width="1.5" height="4" rx="0.75" fill="currentColor"/></svg>
+            </span>
+          </div>
+
+          {/* Dynamic Island (a "ilha" preta no topo) */}
+          <div className="absolute left-1/2 top-2 z-30 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-neutral-900" />
+
           {/* topo do WhatsApp */}
-          <div className="flex items-center gap-2.5 bg-[#075E54] px-3.5 py-3 text-white">
+          <div className="flex items-center gap-2.5 bg-[#075E54] px-3.5 pb-3 pt-2 text-white">
             <div className="grid h-9 w-9 place-items-center rounded-full bg-[#0F3D2E]">
               <Logo size={20} />
             </div>
@@ -98,12 +116,18 @@ export function ChatDemo() {
               <div className="text-[11px] text-white/70">online</div>
             </div>
           </div>
-          {/* mensagens */}
-          <div className="flex min-h-[380px] flex-col justify-end gap-2 px-3 py-4">
+
+          {/* mensagens: começam do topo e vão descendo, como num chat real */}
+          <div className="flex flex-1 flex-col justify-start gap-2 overflow-hidden px-3 py-4">
             {ROTEIRO.slice(0, shown).map((m, i) => (
               <Bubble key={i} m={m} />
             ))}
             {typing && <Typing />}
+          </div>
+
+          {/* barra de gestos (risquinho embaixo, como no iPhone) */}
+          <div className="flex justify-center bg-[#e5ddd5] pb-1.5 pt-1">
+            <div className="h-1 w-28 rounded-full bg-neutral-500/40" />
           </div>
         </div>
       </div>
