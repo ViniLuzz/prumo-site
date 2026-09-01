@@ -417,9 +417,17 @@ function Footer() {
           conduzirem seus próprios recursos administrativos. Não somos um escritório de advocacia e não
           prestamos serviços jurídicos. Não pedimos senha do gov.br e não acessamos sua conta.
         </p>
-        <a href="https://instagram.com/prumoapp" target="_blank" rel="noopener" className="font-semibold text-esmeralda">
-          @prumoapp
-        </a>
+        <div className="flex items-center gap-5">
+          <a href="/privacidade" className="font-semibold text-esmeralda hover:underline">
+            Política de Privacidade
+          </a>
+          <a href="/excluir-dados" className="font-semibold text-esmeralda hover:underline">
+            Apagar meus dados
+          </a>
+          <a href="https://instagram.com/prumoapp" target="_blank" rel="noopener" className="font-semibold text-esmeralda">
+            @prumoapp
+          </a>
+        </div>
       </div>
     </footer>
   );
